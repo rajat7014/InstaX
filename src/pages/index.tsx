@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   return (
-    <div className='bg-gray-900 min-h-screen text-white flex flex-col items-center'>
+    <div className='bg-gray-900 min-h-screen text-white flex flex-col items-center justify-center w-full px-4'>
       <div className='fixed top-0 w-full flex justify-between items-center bg-black text-white px-6 py-4 shadow-lg'>
         {/* Logo and Name */}
         <div className='flex items-center space-x-3'>
@@ -42,14 +42,16 @@ export default function Home() {
             height={40}
             className='rounded-full border-2 border-pink-500 shadow-lg'
           />
-          <h1 className='text-2xl font-bold text-pink-500'>InstaX</h1>
+          <h1 className='text-2xl md:text-2xl font-bold text-pink-400 whitespace-nowrap'>
+            InstaX
+          </h1>
         </div>
       </div>
 
       {/* 🔹 Navbar */}
-      <nav className='w-full bg-gray-800 py-4 px-6 flex justify-between items-center fixed top-0'>
-        <h1 className='text-2xl font-bold text-pink-400'>InstaX</h1>
-        <div className='space-x-6'>
+      <nav className='w-full bg-gray-800 py-4 px-6 flex justify-center md:justify-between items-center fixed top-0'>
+        <h1 className='text-lg md:text-2xl font-bold text-pink-400'>InstaX</h1>
+        <div className=' flex items-center space-x-3'>
           <span className='cursor-pointer hover:text-gray-400'>🏠 Home</span>
           <span className='cursor-pointer hover:text-gray-400'>🔍 Search</span>
           <span className='cursor-pointer hover:text-gray-400'>
@@ -62,7 +64,7 @@ export default function Home() {
       </nav>
 
       {/* 🔹 Stories Section */}
-      <div className='mt-20 flex space-x-4 overflow-x-auto p-4'>
+      <div className='mt-[80px] flex space-x-4 overflow-x-auto p-4 w-full justify-center'>
         {[...Array(8)].map((_, index) => (
           <div key={index} className='flex flex-col items-center'>
             <div className='w-16 h-16 bg-gray-700 rounded-full border-2 border-pink-500 p-1'>
@@ -78,7 +80,7 @@ export default function Home() {
       </div>
 
       <div className='w-full max-w-md md:max-w-lg lg:max-w-xl bg-zinc-900 p-8 rounded-lg shadow-2xl mt-20'>
-        <h2 className='text-3xl font-bold text-center text-pink-400 glowing-text'>
+        <h2 className='text-3xl font-bold text-pink-400 glowing-text text-center'>
           InstaX
         </h2>
         {message && (
@@ -86,7 +88,9 @@ export default function Home() {
         )}
         <form onSubmit={handleSubmit} className='space-y-6 mt-4'>
           <div>
-            <label className='block text-sm mb-1'>Username</label>
+            <label className='block text-sm mb-1'>
+              Username, Email or Phone number
+            </label>
             <input
               type='text'
               value={username}
@@ -116,10 +120,10 @@ export default function Home() {
 
       {/* 🔹 Posts Section */}
       <div className='mt-10 w-full max-w-lg space-y-6'>
-        <h2 className='text-xl font-bold mb-4'>📷 Latest Posts</h2>
+        <h2 className='text-xl font-bold mb-4 text-center'>📷 Latest Posts</h2>
         {[...Array(2)].map((_, index) => (
-          <div key={index} className='bg-gray-800 p-4 rounded-lg'>
-            <div className='flex items-center space-x-3'>
+          <div key={index} className='bg-gray-800 p-4 rounded-lg '>
+            <div className='flex items-center space-x-3 justify-center'>
               <img
                 src={`https://i.pravatar.cc/150?img=${index + 3}`}
                 className='w-10 h-10 rounded-full'
@@ -133,7 +137,7 @@ export default function Home() {
               className='w-full h-60 object-cover rounded mt-2'
             />
 
-            <div className='flex justify-between mt-2'>
+            <div className='flex justify-between mt-2 space-x-6'>
               <button className='text-pink-400 hover:text-pink-500'>
                 ❤️ Like
               </button>
